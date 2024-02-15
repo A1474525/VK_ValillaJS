@@ -4,7 +4,7 @@
 a:focus,a:active{outline: none;}
 nav,footer,header,aside{display: block;}
 html,body{font-family: "Inter", sans-serif;
-    min-height: 100%; width: 100%; font-size: 100%; color: black; line-height: 1; font-size: 16px; -ms-text-size-adjust: 100%; -moz-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-weight: 600;}
+    min-height: 100%; width: 100%;  color: black; line-height: 1; font-size: 16px; -ms-text-size-adjust: 100%; -moz-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-weight: 600;}
 input,button,textarea{font-family: inherit;} input::-ms-clear{display: none;} button{cursor: pointer;} button::-moz-focus-inner{padding: 0;border: 0;}
 a, a:visited{text-decoration: none;}
 a:hover{text-decoration: none;}
@@ -63,6 +63,8 @@ body {
 }
 .main {
     justify-content: center;
+    overflow: hidden;
+
 }
 .main__avatar{
     height: 200px;
@@ -76,6 +78,7 @@ body {
 .main__section {
     height: 200px;
     width: 800px;
+    min-width: 522px;
     border-radius: 15px;
     background-color: rgba(32, 32, 33, 0.95);
     margin: 20px;
@@ -88,17 +91,17 @@ body {
     color: #d0d0d0;
     text-shadow: black 1px 0 5px;
     margin: 20px;
+
 }
 
 .user-data__name {
     font-size: 23px;
-    font-weight: normal;
 }
 
 .user-data__online {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: normal;
-    opacity: 0.5;
+    opacity: 0.3;
 }
 
 .main__avatar {
@@ -108,3 +111,27 @@ body {
 .main__avatar>img {
     height: 100%;}
 
+.user-other{
+    height: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+.user-other>div{
+    opacity: 0.5;
+}
+.user-other img {
+    margin-top: -5px ;
+    height: 23px;
+}
+
+.user-other span {
+    margin: Auto 8px;
+    font-size: 15px;
+    color: #d0d0d0;
+    font-weight: 300;
+
+}
+
+@media screen and (max-width: 600px) {
+    body { display: none;}
+}

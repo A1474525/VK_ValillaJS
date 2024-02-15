@@ -6,7 +6,8 @@ module.exports = {
     entry: './src/app.js',
     output: {
         filename: 'bundle.[chunkhash].js',
-        path: path.resolve(__dirname, 'public')
+        path: path.resolve(__dirname, 'public'),
+        assetModuleFilename: 'images/[hash][ext][query]'
     },
     devServer: {
         port: 4400,
@@ -20,6 +21,10 @@ module.exports = {
             {
                 test: /\.css$/i,
                 use: ["style-loader", "css-loader"],
+            },
+            {
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                type: 'asset/resource',
             },
         ],
     },
