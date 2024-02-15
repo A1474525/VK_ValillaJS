@@ -1,0 +1,110 @@
+*{ padding: 0; margin: 0; border: 0;}
+*,*:before,*:after{-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+html,body{font-family: "Inter", sans-serif;
+    min-height: 100%; width: 100%; font-size: 100%; color: black; line-height: 1; font-size: 16px; -ms-text-size-adjust: 100%; -moz-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-weight: 600;}
+input,button,textarea{font-family: inherit;} input::-ms-clear{display: none;} button{cursor: pointer;} button::-moz-focus-inner{padding: 0;border: 0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+a{color: black;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-size: inherit; font-weight: 600; line-height: normal;}
+
+body {
+    background-color: rgba(25, 25, 26, 0.95);
+}
+.header {
+    background-color: #323232;
+    height: 60px;
+}
+.container{
+    height: 100%;
+    display: flex;
+    max-width: 1200px;
+    min-width: 352px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+}
+.header__signIn {
+    color: black;
+    height: 40px;
+    border-radius: 15px;
+    width: 100px;
+    align-items: end;
+    margin: auto 20px auto 20px ;
+    text-shadow: black 1px 0 10px;
+    font-size: 16px;
+}
+
+.button-stile {
+    background-color: #45688E;
+    color: white;
+    height: 40px;
+    border-radius: 15px;
+    width: 150px;
+    /*align-items: ;*/
+    margin: auto 20px auto 20px ;
+    text-shadow: black 1px 0 10px;
+    font-size: 15px;
+    font-weight: bold;
+    box-shadow: 3px 3px 1px #171616;
+}
+
+.clicked:hover {
+    background-color: #2e4a61;
+}
+
+.clicked:active {
+    box-shadow: 1px 1px black;
+}
+.main {
+    justify-content: center;
+}
+.main__avatar{
+    height: 200px;
+    min-width: 200px;
+    border-radius: 50%;
+    background-color: rgba(32, 32, 33, 0.95);
+    margin: 20px;
+    border: 2px solid #5b5b5b;
+}
+
+.main__section {
+    height: 200px;
+    width: 800px;
+    border-radius: 15px;
+    background-color: rgba(32, 32, 33, 0.95);
+    margin: 20px;
+    border: 2px solid #323232;
+}
+
+.user-data {
+    display: flex;
+    justify-content: space-between;
+    color: #d0d0d0;
+    text-shadow: black 1px 0 5px;
+    margin: 20px;
+}
+
+.user-data__name {
+    font-size: 23px;
+    font-weight: normal;
+}
+
+.user-data__online {
+    font-size: 18px;
+    font-weight: normal;
+    opacity: 0.5;
+}
+
+.main__avatar {
+    overflow: hidden;
+}
+
+.main__avatar>img {
+    height: 100%;}
+
