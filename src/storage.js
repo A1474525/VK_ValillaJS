@@ -12,3 +12,18 @@ export class Storage {
     }
 }
 export const myStorage = new Storage();
+
+
+
+
+
+
+
+
+
+
+// //////////////////////////////////////  Фотографии пользователя   /////////////////////////////////////////
+//      const photosSectionContainer = document.querySelector('.photos__section-container');
+//      elementCreate('div', ``, '', null, photosSectionContainer);
+//      elementCreate('img', '', '', profile.photo_200, photosSectionContainer)
+
