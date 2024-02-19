@@ -1,3 +1,5 @@
+import {removeChildOnContainer} from './elementCreate'
+
 //////////// локальное хранилище /////////////
 export class Storage {
     getItem(key) {
@@ -10,20 +12,19 @@ export class Storage {
         // if (!data) return;
         localStorage.setItem(key, JSON.stringify(data))
     }
+    removeItem(key) {
+        localStorage.removeItem(key);
+    }
 }
 export const myStorage = new Storage();
+export function removeStorage(){
+    localStorage.clear();
+    removeChildOnContainer(userDataName)
+}
 
 
 
 
 
 
-
-
-
-
-// //////////////////////////////////////  Фотографии пользователя   /////////////////////////////////////////
-//      const photosSectionContainer = document.querySelector('.photos__section-container');
-//      elementCreate('div', ``, '', null, photosSectionContainer);
-//      elementCreate('img', '', '', profile.photo_200, photosSectionContainer)
 

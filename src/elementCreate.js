@@ -14,3 +14,8 @@ export function elementCreate(tagName, innerHTML, className, src, target = docum
     return element;
 }
 
+export function removeChildOnContainer (nameContainer) {
+    nameContainer.removeChild(nameContainer.firstChild);
+}
+
+//

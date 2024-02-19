@@ -1,15 +1,36 @@
 import './styles.css'
-import './oauth'
-import './initToken'
-import './storage'
-import './elementCreate'
+import {getAuthorization} from "./oauth";
 import {runInitProfile} from "./initProfile";
 import {runInitFriends} from "./initProfile";
+import {runInitPhotos} from "./initProfile";
+import {openPopup} from './utils/popup.js';
 
 
 
-runInitProfile()
-runInitFriends ()
+getAuthorization().then((token) => {
+    runInitProfile(profile)
+    runInitFriends (friends)
+    runInitPhotos (photos)
+})
+runInitProfile(profile)
+runInitFriends (friends)
+runInitPhotos (photos)
+
+
+//openPopup();
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -23,7 +44,7 @@ runInitFriends ()
 //     }
 //
 //     send(params) {
-//         this.url === 'sasat' // true
+//         this.url === '' // true
 //     }
 //
 //     create(url) {
@@ -52,7 +73,7 @@ runInitFriends ()
 // };
 // new MethodRequest(friends).createSendRequest();
 
-// export default class MethodRequest extends Token {
+// export default class MethodRequest extends Token
 //     constructor(options) {
 //         super();
 //         options.usId ? this.usId = options.usId : this.usId = this.userId;

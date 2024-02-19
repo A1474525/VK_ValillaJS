@@ -1,36 +1,25 @@
 import {elementCreate} from "./elementCreate";
 import {myStorage} from "./storage";
+import {getRandomNumberArray} from "./utils/getRandomNumberArray";
 
 export function renderFriends (friends) {
-    getRandomNumberArray(friends)
-    callFunctionForEachValue (numberArray)
-
+    const randomArray = getRandomNumberArray(friends.response.count)
+    renderFriendCardForEachValue(randomArray)
 }
-
-const numberArray = [];
-function getRandomNumberArray (friends) {
-    while (numberArray.length < 9) {
-        const randomNumber = Math.floor(Math.random() * (friends.response.count + 1));
-        if (!numberArray.includes(randomNumber)) numberArray.push(randomNumber);
-    }
-    return numberArray
-}
-function callFunctionForEachValue(numberArray) {
+function renderFriendCardForEachValue(numberArray) {
     const friends = myStorage.getItem('friends')
-    numberArray.forEach(value => {renderFriendCard (friends, value);});
-
+    numberArray.forEach(randomNumber => renderFriendCard(friends[randomNumber], randomNumber));
 }
-
-function renderFriendCard (friends, number){
+function renderFriendCard (randomFriend, hisRandomIndex){
     const friendsSectionContainer = document.querySelector(
         '.friends__section-container');
     elementCreate('div',
          '',
-         `card-of-friend_${number}`,
+         `card-of-friend_${hisRandomIndex}`,
          null, friendsSectionContainer)
 
     const friendsSectionContainerDiv = document.querySelector(
-        `.friends__section-container>.card-of-friend_${number}`)
+        `.friends__section-container > .card-of-friend_${hisRandomIndex}`)
     elementCreate('div',
         '',
         'card-of-friend_photo',
@@ -41,23 +30,26 @@ function renderFriendCard (friends, number){
         null, friendsSectionContainerDiv)
 
     const friendsSectionContainerDivIMG = document.querySelector(
-         `.card-of-friend_${number}>.card-of-friend_photo`)
-    friends[number]!==undefined
+         `.card-of-friend_${hisRandomIndex}>.card-of-friend_photo`)
+    randomFriend !== undefined
         ? elementCreate('img',
           '',
           '',
-          friends[number].photo_50,
+          randomFriend.photo_50,
           friendsSectionContainerDivIMG)
-        : console.log('друг отошёл покурить (баг с фоткой друга)')
+        : console.warn('друг отошёл покурить (баг с фоткой друга)')
 
     const friendsSectionContainerDivName = document.querySelector(
-        `.card-of-friend_${number}>.card-of-friend_name`)
-    friends[number].first_name !== undefined || friends[number].first_name === null
+        `.card-of-friend_${hisRandomIndex}>.card-of-friend_name`)
+
+    randomFriend !== undefined
+    && randomFriend.first_name !== undefined
+    && randomFriend.first_name !== null
         ? elementCreate('span',
-            friends[number].first_name,
+            randomFriend.first_name,
             '',
             null,
             friendsSectionContainerDivName)
-        : console.log('Имя не указано')
+        : console.warn('Имя не указано')
 }
 
