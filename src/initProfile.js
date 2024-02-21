@@ -1,8 +1,8 @@
-import {myRequest} from "./request";
-import {myStorage} from "./storage";
+import {myRequest} from "./utils/request";
+import {myStorage} from "./utils/storage";
 import {renderProfile} from "./renderProfile";
 import {renderFriends} from "./renderFriends";
-import {renderPhotos} from "./renderPhotos";
+import {openerClickPhoto, renderPhotosCollection} from "./renderPhotos";
 
 export function runInitProfile () {
     myRequest.create('users.get',
@@ -14,8 +14,6 @@ window.profile = (profile) => {
     if (!profile.response || !profile.response[0]) return;
     const userProfile = profile.response[0];
     myStorage.setItem('profile', userProfile);
-    //  if (profile.response[0]) new Profile(profile.response[0]);
-    // renderProfile(userProfile);
     renderProfile(profile)
 }
 export function runInitFriends () {
@@ -38,5 +36,6 @@ window.photos = (photos) => {
     if (!photos.response) return;
     const userPhotos = photos.response.items;
     myStorage.setItem('photos', userPhotos);
-    renderPhotos(userPhotos)
+    renderPhotosCollection(userPhotos)
+    openerClickPhoto(userPhotos)
 }

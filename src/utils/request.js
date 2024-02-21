@@ -1,6 +1,6 @@
 import {myStorage} from "./storage";
 import {elementCreate} from "./elementCreate";
-import {getDateStringUtil} from "./utils/get-date-string.util";
+import {getDateStringUtil} from "./get-date-string.util";
 
 class Requests {
     get #token() {

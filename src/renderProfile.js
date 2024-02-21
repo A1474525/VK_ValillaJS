@@ -1,5 +1,5 @@
 import {getDateStringUtil} from "./utils/get-date-string.util";
-import {elementCreate} from "./elementCreate";
+import {elementCreate} from "./utils/elementCreate";
 import myMap from "./images/map.png";
 import myUniver from "./images/univer.png";
 import myBerthDay from "./images/berthDay.png";

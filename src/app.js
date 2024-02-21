@@ -1,20 +1,38 @@
 import './styles.css'
-import {getAuthorization} from "./oauth";
+import {initAuthListener, initBtn, startInitToken} from "./oauth";
 import {runInitProfile} from "./initProfile";
 import {runInitFriends} from "./initProfile";
 import {runInitPhotos} from "./initProfile";
-import {openPopup} from './utils/popup.js';
+import {openPopup} from './popup.js';
+import {myStorage} from "./utils/storage";
+
+initBtn ()
+initAuthListener()
+if (!myStorage.hasItem('token')) {
+new Promise((resolve, reject) => startInitToken(resolve, reject))   //
+    .then(() => {
+        // if (history.length > 0)
+        //     history.back();
+        window.location.hash = '' // todo повторяющийся код
+        runInitProfile() // todo повторяющийся код arguments: (profileId)
+        runInitFriends() // todo повторяющийся код arguments: (profileId)
+        //todo либо storageGet('currentUser: { id: asda, scope: asda, calledMethods: ..., history: ... }')
+        runInitPhotos() // todo повторяющийся код arguments: (profileId)
+    }).catch(() => {
+        alert ('Нужно авторизоваться еще раз =(')
+    })
+}
+else {
+    window.location.hash = '' // todo повторяющийся код
+    runInitProfile(profile) // todo повторяющийся код
+    runInitFriends(friends) // todo повторяющийся код
+    runInitPhotos(photos) // todo повторяющийся код
+}
 
 
 
-getAuthorization().then((token) => {
-    runInitProfile(profile)
-    runInitFriends (friends)
-    runInitPhotos (photos)
-})
-runInitProfile(profile)
-runInitFriends (friends)
-runInitPhotos (photos)
+
+
 
 
 //openPopup();
@@ -55,10 +73,6 @@ runInitPhotos (photos)
 
 
 
-
-//
-//
-// window.profile = (token) => profileCreate(token);
 
 // profileCreate(token: Object) {
 //

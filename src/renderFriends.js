@@ -1,5 +1,5 @@
-import {elementCreate} from "./elementCreate";
-import {myStorage} from "./storage";
+import {elementCreate} from "./utils/elementCreate";
+import {myStorage} from "./utils/storage";
 import {getRandomNumberArray} from "./utils/getRandomNumberArray";
 
 export function renderFriends (friends) {
