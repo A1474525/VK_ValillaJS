@@ -1,9 +1,9 @@
-import {elementCreate, removeElement} from "./utils/elementCreate";
+import {elementCreate, removeChildElement, removeElement} from "./utils/elementCreate";
 import {openPopup} from './popup.js';
 import btnRight from "./images/arrow.png";
 import {myStorage} from "./utils/storage";
 const AMOUNT_PHOTO_INTO_ALBUM = 6;
-const SIZE = 8;
+const SIZE = 4;
 
 export function renderPhotosCollection(photos) {
     Array.from({ length: AMOUNT_PHOTO_INTO_ALBUM },
@@ -34,7 +34,6 @@ export function openerClickPhoto() {
     const clickPhoto = (event) => {
         const num = +event.target.className
         myStorage.setItem('num', num);
-
         console.log('получили номер фотки при клике: ', num)
         openPopup();
         popupBtn();
@@ -43,6 +42,8 @@ export function openerClickPhoto() {
     }
     image.addEventListener('click', clickPhoto)
 }
+
+
 function popupContent() {
     removeElement ('popup-content-img' )
     const photos = myStorage.getItem('photos');
@@ -60,8 +61,9 @@ function popupContent() {
 }
 function popupBtn() {
     const popupContentBtnLeft = document.querySelector('.popup-content-btn-left');
-    if (!popupContentBtnLeft.classList.contains('btn-left') &&
-        !popupContentBtnLeft.classList.contains('btn-right')) {
+    removeChildElement('popup-content-btn-right')
+    removeChildElement('popup-content-btn-left')
+    if (!popupContentBtnLeft.classList.contains('btn-left')) {
     const arrow = new Image();
     arrow.src = btnRight;
     elementCreate('img', '', 'btn-left', btnRight, popupContentBtnLeft);
@@ -85,5 +87,4 @@ function popupBtn() {
         console.log (num)
     })
 }
-
 

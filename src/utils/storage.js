@@ -9,13 +9,13 @@ export class Storage {
 
     #keysActions = Object.keys(this.#storageActions)
     getItem(key) {
-        console.log(`[${this.#keysActions.at(0)}]: ${this.#storageActions.GET_ITEM}`)
+        // console.log(`[${this.#keysActions.at(0)}]: ${this.#storageActions.GET_ITEM}`)
         const data = localStorage.getItem(key)
         if (data) {
-            console.log(`[${this.#keysActions.at(1)}]: ${this.#storageActions.GET_ITEM_SUCCESS}`)
+            // console.log(`[${this.#keysActions.at(1)}]: ${this.#storageActions.GET_ITEM_SUCCESS}`)
             return JSON.parse(data)
         }
-        console.log(`[${this.#keysActions.at(2)}]: ${this.#storageActions.GET_ITEM_FAILURE}`)
+        // console.log(`[${this.#keysActions.at(2)}]: ${this.#storageActions.GET_ITEM_FAILURE}`)
         return null;
     }
     setItem(key, data) {

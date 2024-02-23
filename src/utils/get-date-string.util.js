@@ -3,5 +3,4 @@ export function getDateStringUtil(data) {
     const dateString = date.toLocaleDateString(); // Дата в формате "MM/DD/YYYY"
     const timeString = date.toLocaleTimeString(); // Время в формате "HH:MM:SS"
     return [dateString, timeString]
-     //return `заходил ${dateString} в ${timeString}`
 }
